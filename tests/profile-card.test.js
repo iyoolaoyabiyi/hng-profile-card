@@ -20,10 +20,12 @@ function expectContains(fragment, message) {
     html.includes(fragment),
     `✖ ${message} (missing "${fragment}")`
   );
+  console.log(`  ✓ ${message}`);
 }
 
 try {
   // Required data-testid attributes from the prerequisite.
+  console.log('Checking required data-testid attributes…');
   [
     'test-profile-card',
     'test-user-name',
@@ -34,10 +36,11 @@ try {
     'test-user-hobbies',
     'test-user-dislikes'
   ].forEach((id) => {
-    expectContains(`data-testid="${id}"`, `Expected ${id}`);
+    expectContains(`data-testid="${id}"`, `Found ${id}`);
   });
 
   // Ensure each social link opens in a new tab with proper rel.
+  console.log('Validating social link targets…');
   const socialNetworks = ['github', 'twitter', 'linkedin', 'website'];
   socialNetworks.forEach((network) => {
     const pattern = new RegExp(
@@ -48,16 +51,19 @@ try {
       pattern.test(html),
       `✖ Social link for ${network} should open in a new tab with rel="noopener noreferrer"`
     );
+    console.log(`  ✓ Social link ${network} opens safely in new tab`);
   });
 
   // Verify the live time element references Date.now() in script.js
+  console.log('Checking live time implementation…');
   const script = read('script.js');
   assert(
     /Date\.now\(\)/.test(script),
     '✖ script.js should set current time using Date.now()'
   );
+  console.log('  ✓ Date.now() used for live time');
 
-  console.log('✓ Profile card structure matches prerequisite requirements');
+  console.log('\nAll checks passed ✅');
   process.exit(0);
 } catch (error) {
   console.error(error.message);

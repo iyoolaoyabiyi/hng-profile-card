@@ -57,8 +57,18 @@ profile/
 ├── index.html     # Semantic markup with data-testid hooks
 ├── style.css      # Theming, responsive layout, accessibility styling
 ├── script.js      # Live clock + theme toggle persistence
-└── prerequisite.md# Original task brief for reference
+ └── prerequisite.md# Original task brief for reference
 ```
+
+## Running Tests
+
+This repo includes a lightweight structural test to confirm the prerequisites are satisfied (presence of `data-testid` attributes, safe social link targets, and the live time implementation).
+
+```bash
+node tests/profile-card.test.js
+```
+
+The script outputs a step-by-step breakdown, so you’ll see each requirement ticked off as it passes.
 
 ## Accessibility & UX Notes
 
