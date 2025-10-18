@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HNG Stage 0 :: Testable Profile Card</title>
+</head>
+<body>
+  <main role="main" data-testid="page-main">
+    <article class="card profile-card profile-card--twitter layout-twitter" data-testid="test-profile-card">
+
+      <!-- Cover (used in LinkedIn/Facebook styles) -->
+      <figure class="profile-card__cover cover" data-testid="cover-figure">
+        <img
+          data-testid="cover-image"
+          alt=""
+          src="https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1024&q=60"
+          srcset="
+            https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=720&q=60 720w,
+            https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1024&q=60 1024w,
+            https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1440&q=60 1440w,
+            https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1920&q=60 1920w"
+          sizes="100vw"
+          width="1024" height="320"
+          decoding="async"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
+
+      <!-- Avatar -->
+      <div class="profile-card__avatar avatar" data-testid="avatar-wrapper">
+        <figure data-testid="avatar-figure">
+          <img
+            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=400&q=60"
+            srcset="
+              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=160&q=60 160w,
+              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=240&q=60 240w,
+              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=320&q=60 320w,
+              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=480&q=60 480w,
+              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=640&q=60 640w"
+            sizes="(max-width: 719px) 60vw, 220px"
+            width="400" height="400"
+            alt="Profile photo of Iyọ̀"
+            data-testid="test-user-avatar"
+            decoding="async"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <figcaption class="sr-only" data-testid="avatar-caption">User avatar</figcaption>
+        </figure>
+      </div>
+
+      <!-- Header: Name + Bio -->
+      <header class="profile-card__header card__header" data-testid="header">
+        <h2 data-testid="test-user-name">Iyola Oyabiyi O.</h2>
+        <p data-testid="test-user-bio">
+          I build fast, accessible web experiences. Interested in Core Web Vitals, semantic HTML, and Frontend performance.
+        </p>
+      </header>
+
+      <!-- Meta: current time (ms) -->
+      <div class="profile-card__meta meta" data-testid="meta-row" aria-live="polite">
+        <span data-testid="meta-label">Current time (ms):</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span data-testid="test-user-time">0</span>
+      </div>
+
+      <!-- Social links -->
+      <nav class="profile-card__social social" aria-label="Social links" data-testid="nav-social">
+        <ul class="profile-card__social-list social-list" data-testid="test-user-social-links">
+          <li data-testid="social-item-github"><a data-testid="test-user-social-github" href="https://github.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li data-testid="social-item-x"><a data-testid="test-user-social-twitter" href="https://x.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
+          <li data-testid="social-item-linkedin"><a data-testid="test-user-social-linkedin" href="https://www.linkedin.com/in/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li data-testid="social-item-website"><a data-testid="test-user-social-website" href="https://iyoolaoyabiyi.com" target="_blank" rel="noopener noreferrer">Website</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hobbies & Dislikes -->
+      <div class="profile-card__sections sections" data-testid="sections">
+        <section aria-labelledby="hobbies-heading" data-testid="section-hobbies">
+          <h3 id="hobbies-heading" data-testid="heading-hobbies">Hobbies</h3>
+          <ul data-testid="test-user-hobbies">
+            <li data-testid="hobby-1">Optimizing LCP for fun</li>
+            <li data-testid="hobby-2">Design systems & tokens</li>
+            <li data-testid="hobby-3">Reading about accessibility</li>
+          </ul>
+        </section>
+        <section aria-labelledby="dislikes-heading" data-testid="section-dislikes">
+          <h3 id="dislikes-heading" data-testid="heading-dislikes">Dislikes</h3>
+          <ul data-testid="test-user-dislikes">
+            <li data-testid="dislike-1">Unlabeled buttons</li>
+            <li data-testid="dislike-2">Blocking third-party scripts</li>
+            <li data-testid="dislike-3">Invisible focus states</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Optional controls to satisfy avatar URL / upload requirement -->
+      <details class="profile-card__controls controls" data-testid="controls">
+        <summary data-testid="controls-summary">Customize (avatar, name & bio)</summary>
+        <div class="grid">
+          <label for="name" data-testid="label-name">Name
+            <input id="name" name="name" type="text" placeholder="Your name" value="Iyọ̀ – Frontend & Web Performance" data-testid="input-name" />
+          </label>
+          <label for="bio" data-testid="label-bio">Bio
+            <textarea id="bio" name="bio" rows="3" placeholder="Short bio" data-testid="input-bio">I build fast, accessible web experiences. Interested in Core Web Vitals, semantic HTML, and WordPress performance.</textarea>
+          </label>
+          <div class="grid two">
+            <label for="avatarUrl" data-testid="label-avatar-url">Avatar URL
+              <input id="avatarUrl" name="avatarUrl" type="url" placeholder="https://…/photo.jpg" data-testid="input-avatar-url" />
+            </label>
+            <label for="avatarFile" data-testid="label-avatar-file">Or upload image
+              <input id="avatarFile" name="avatarFile" type="file" accept="image/*" data-testid="input-avatar-file" />
+            </label>
+          </div>
+        </div>
+      </details>
+
+      <!-- Style & Theme controls -->
+      <details class="profile-card__controls profile-card__controls--accent controls" data-testid="controls-display">
+        <summary data-testid="controls-display-summary">Theme</summary>
+        <div class="grid">
+          <label for="themeSelect" data-testid="label-theme">Theme
+            <select id="themeSelect" class="c-select c-select--rose" data-testid="input-theme">
+              <option value="auto">Auto (System)</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </label>
+        </div>
+      </details>
+
+    </article>
+  </main>
+</body>
+</html>
