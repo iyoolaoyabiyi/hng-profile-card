@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Accessible, testable profile card for HNG Stage 0 — includes avatar, bio, social links, hobbies, dislikes, and a live time indicator.">
   <title>HNG Stage 0 :: Testable Profile Card</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -20,16 +23,9 @@
       <header class="profile-card__header" data-testid="header">
         <figure class="profile-card__avatar" data-testid="avatar-wrapper">
           <img
-            src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=400&q=60"
-            srcset="
-              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=160&q=60 160w,
-              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=240&q=60 240w,
-              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=320&q=60 320w,
-              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=480&q=60 480w,
-              https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&crop=faces&w=640&q=60 640w"
-            sizes="(max-width: 719px) 28vw, 200px"
-            width="400" height="400"
-            alt="Profile photo of Iyọ̀"
+            src="assets/avatar-200.webp"
+            width="200" height="200"
+            alt="Iyola's Picture"
             data-testid="test-user-avatar"
             decoding="async"
             loading="eager"
@@ -47,7 +43,7 @@
 
       <!-- Meta: current time (ms) -->
       <div class="profile-card__meta" data-testid="meta-row" aria-live="polite">
-        <span data-testid="meta-label">Current time (ms):</span>
+        <span data-testid="meta-label">Current time (ms)</span>
         <span class="dot" aria-hidden="true"></span>
         <span data-testid="test-user-time">0</span>
       </div>

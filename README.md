@@ -106,4 +106,4 @@ Because the project is static, hosting is as simple as dropping the folder into 
 
 ---
 
-Built for the HNG Stage 0 challenge with a focus on clarity, accessibility, and an elegant developer experience. Feel free to fork, remix, and extend! 💫
+Built for the HNG Stage 0 challenge with a focus on clarity, accessibility, and an elegant developer experience. Feel free to fork, remix, and extend!
