@@ -3,20 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Accessible, testable profile card for HNG Stage 0 — includes avatar, bio, social links, hobbies, dislikes, and a live time indicator.">
-  <title>HNG Stage 0 :: Testable Profile Card</title>
+  <meta name="description" content="A personal website for HNG Internship">
+  <title>Personal Website :: HNG Internship</title>
   <link rel="preload" href="style.css" as="style">
   <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="style.css"></noscript>
   <script src="script.js" defer></script>
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+<body class="home">
+  <a class="btn skip-link__btn" href="#main-content">Skip to main content</a>
   <div class="theme-toggle" role="group" aria-label="Toggle color theme">
     <button type="button" class="theme-toggle__btn" data-theme-control="light" aria-pressed="false">Light</button>
     <button type="button" class="theme-toggle__btn" data-theme-control="dark" aria-pressed="false">Dark</button>
   </div>
-  <main id="main-content" role="main" data-testid="page-main" tabindex="-1">
+  <header class="site-header" data-component="site-header">
+    <div class="site-header__inner">
+      <h1><a class="site-header__brand" href="index.html">Iyola Oyabiyi</a></h1>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="site-nav__list">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="profile-main" role="main" data-testid="page-main" tabindex="-1">
     <article class="profile-card" data-testid="test-profile-card">
 
       <!-- Header: Avatar + Name + Bio -->
@@ -31,7 +41,7 @@
             loading="eager"
             fetchpriority="high"
           />
-          <figcaption class="sr-only" data-testid="avatar-caption">User avatar</figcaption>
+          <figcaption class="sr-only" data-testid="avatar-caption">Iyola Oyabiyi</figcaption>
         </figure>
         <div class="profile-card__intro">
           <h2 data-testid="test-user-name">Iyola Oyabiyi O.</h2>
@@ -51,10 +61,10 @@
       <!-- Social links -->
       <nav class="profile-card__social" aria-label="Social links" data-testid="nav-social">
         <ul class="profile-card__social-list" data-testid="test-user-social-links">
-          <li data-testid="social-item-github"><a data-testid="test-user-social-github" data-social="github" href="https://github.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li data-testid="social-item-x"><a data-testid="test-user-social-twitter" data-social="twitter" href="https://x.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">X / Twitter</a></li>
-          <li data-testid="social-item-linkedin"><a data-testid="test-user-social-linkedin" data-social="linkedin" href="https://www.linkedin.com/in/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-          <li data-testid="social-item-website"><a data-testid="test-user-social-website" data-social="website" href="https://iyoolaoyabiyi.com" target="_blank" rel="noopener noreferrer">Website</a></li>
+          <li data-testid="social-item-github"><a data-testid="test-user-social-github" data-social="github" href="https://github.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer" class="btn btn--icon">GitHub</a></li>
+          <li data-testid="social-item-x"><a data-testid="test-user-social-twitter" data-social="twitter" href="https://x.com/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer" class="btn btn--icon">X / Twitter</a></li>
+          <li data-testid="social-item-linkedin"><a data-testid="test-user-social-linkedin" data-social="linkedin" href="https://www.linkedin.com/in/iyoolaoyabiyi" target="_blank" rel="noopener noreferrer" class="btn btn--icon">LinkedIn</a></li>
+          <li data-testid="social-item-website"><a data-testid="test-user-social-website" data-social="website" href="https://iyoolaoyabiyi.com" target="_blank" rel="noopener noreferrer" class="btn btn--icon">Website</a></li>
         </ul>
       </nav>
 
