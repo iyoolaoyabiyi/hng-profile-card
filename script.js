@@ -1,28 +1,7 @@
-// === Time in milliseconds ===
-const timeEl = document.querySelector('[data-testid="test-user-time"]');
-function updateTime() { timeEl.textContent = String(Date.now()); }
-updateTime();
-setInterval(updateTime, 1000);
-
-// Theme toggle buttons
+// Theme toggle
 const themeButtons = Array.from(document.querySelectorAll('[data-theme-control]'));
 const storedTheme = localStorage.getItem('hng_theme');
 const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)');
-
-function applyTheme(theme) {
-  if (theme === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-  } else {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-}
-
-function updateThemeButtons(active) {
-  themeButtons.forEach((button) => {
-    const buttonTheme = button.getAttribute('data-theme-control');
-    button.setAttribute('aria-pressed', String(buttonTheme === active));
-  });
-}
 
 if (themeButtons.length) {
   const initial = storedTheme || (prefersDark?.matches ? 'dark' : 'light');
@@ -48,4 +27,27 @@ if (themeButtons.length) {
   }
 } else if (storedTheme) {
   applyTheme(storedTheme);
+}
+
+function applyTheme(theme) {
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+}
+
+function updateThemeButtons(active) {
+  themeButtons.forEach((button) => {
+    const buttonTheme = button.getAttribute('data-theme-control');
+    button.setAttribute('aria-pressed', String(buttonTheme === active));
+  });
+}
+
+// Time
+const timeEl = document.querySelector('[data-testid="test-user-time"]');
+function updateTime() { timeEl.textContent = String(Date.now()); }
+if (timeEl) {
+  updateTime();
+  setInterval(updateTime, 1000);
 }

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="About Iyola Oyabiyi — reflections, goals, and notes for the HNG program.">
+  <title>About Iyola Oyabiyi :: HNG Reflections</title>
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+  <script src="script.js" defer></script>
+</head>
+<body class="page">
+  <a class="btn skip-link__btn" href="#main-content">Skip to main content</a>
+  <div class="theme-toggle" role="group" aria-label="Toggle color theme">
+    <button type="button" class="theme-toggle__btn" data-theme-control="light" aria-pressed="false">Light</button>
+    <button type="button" class="theme-toggle__btn" data-theme-control="dark" aria-pressed="false">Dark</button>
+  </div>
+  <header class="site-header" data-component="site-header">
+    <div class="site-header__inner">
+      <h1><a class="site-header__brand" href="index.html">Iyola Oyabiyi</a></h1>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul class="site-nav__list">
+          <li><a href="about.html"aria-current="page">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" data-testid="test-about-page" role="main" tabindex="-1">
+    <header class="page-intro">
+      <h2>About Iyola</h2>
+      <p>A look at where I am today, what I want to master through HNG, and reminders for the future me.</p>
+    </header>
+
+    <section class="about-section" data-testid="test-about-bio" aria-labelledby="about-bio-heading">
+      <h3 id="about-bio-heading">Bio</h3>
+      <p>I am a frontend engineer who obsesses over performance budgets, inclusive design, and the ways solid tooling elevates teams. My favorite projects blend rigorous accessibility reviews with deep dives into Core Web Vitals.</p>
+    </section>
+
+    <section class="about-section" data-testid="test-about-goals" aria-labelledby="about-goals-heading">
+      <h3 id="about-goals-heading">Goals for This Program</h3>
+      <ul>
+        <li>Ship production-ready features that score high on accessibility audits.</li>
+        <li>Collaborate asynchronously with designers and backend engineers across time zones.</li>
+        <li>Improve profiling techniques for measuring hydration and interaction performance.</li>
+      </ul>
+    </section>
+
+    <section class="about-section" data-testid="test-about-confidence" aria-labelledby="about-confidence-heading">
+      <h3 id="about-confidence-heading">Areas of Low Confidence</h3>
+      <p>I am actively strengthening my knowledge of service worker caching strategies and security-first reviews. I tend to over-index on polish, so I am learning to communicate when “good enough” is the right call.</p>
+    </section>
+
+    <section class="about-section" data-testid="test-about-future-note" aria-labelledby="about-future-heading">
+      <h3 id="about-future-heading">Note to Future Me</h3>
+      <p>Keep advocating for accessible defaults. The relationships you build with QA, designers, and PMs define the success of every release, so nurture them intentionally.</p>
+    </section>
+
+    <section class="about-section" data-testid="test-about-extra" aria-labelledby="about-extra-heading">
+      <h3 id="about-extra-heading">Extra Thoughts</h3>
+      <p>Remember to carve out time for community teaching. Writing docs and speaking at meetups keeps you accountable for clarity and reinforces your own understanding.</p>
+    </section>
+  </main>
+</body>
+</html>
