@@ -1,4 +1,4 @@
-# Multi-page Profile & Reflections — HNG Hackathon
+# Multi-page Profile & Reflections — HNG Internship
 
 ## Overview
 
