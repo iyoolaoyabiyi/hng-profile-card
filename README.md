@@ -1,109 +1,102 @@
-# Profile Card – HNG Stage 0 Challenge
+# Multi-page Profile & Reflections — HNG Hackathon
 
 ## Overview
 
-This project implements the Stage 0 profile-card brief from the HNG Hackathon prerequisites. The goal was to build an accessible, responsive profile component in plain HTML, CSS, and vanilla JavaScript, while exposing a consistent `data-testid` surface for automated grading.  
-
-The result is a polished single-page experience that combines neutral light/dark themes, subtle red accents, and carefully tuned motion. Accessibility is built in from the skip links to keyboard-visible focus states, and performance stays sharp thanks to zero build tooling and zero external network requests after first load.
+The original Stage 0 profile card has now grown into a lightweight, multi-page experience. You still get the polished profile landing page, but it is joined by an “About” reflections page and an accessible “Contact” form with custom validation, all in semantic HTML, modern CSS, and vanilla JavaScript. The codebase stays dependency-free and keeps a consistent `data-testid` surface for automated grading.
 
 ## Highlights
 
-- **Fully Semantic Markup**: Uses `<main>`, `<article>`, `<header>`, `<figure>`, `<nav>`, and `<section>` to reinforce structure while keeping automated testing hooks through `data-testid` attributes.
-- **Accessible Navigation**:
-  - Skip-to-content link for screen reader and keyboard users.
-  - Sticky light/dark toggle with ARIA pressed state and `localStorage` persistence.
-  - Inline focus outlines via `:focus-visible` for every interactive control.
-- **Live Data**: The “Current time (ms)” field streams `Date.now()` with a 1 s interval update, matching the prerequisite requirement.
-- **Responsive by Design**: Clamped spacing and auto-fit grids ensure comfortable layouts from 320 px phones to large desktops without media-query bloat.
-- **Iconography Without Payloads**: Social links use CSS masked SVG data URIs so no extra font or image requests are needed.
-- **Performance-Friendly**: Plain HTML/CSS/JS, lazy-free load (no build step, no dependencies), and a total bundle that can be served from any static host.
+- **Reusable Layout Shell** – A shared skip link, sticky header, and theme toggle appear on every page, keeping navigation consistent and keyboard-friendly.
+- **Accessible Profile Card** – The home page retains the original semantic structure, live clock, and data attributes that power automated checks.
+- **About Page Reflections** – Structured `<section>` blocks document biography, goals, confidence gaps, and notes to future self with ARIA-linked headings.
+- **Contact Form Validation** – Custom validation covers required fields, email format, and message length while surfacing inline errors and a success toast.
+- **Performance-first** – No frameworks or external requests; CSS and JS are shared across pages with preloaded styles and deferred scripts.
+
+## Pages
+
+| File           | Purpose                                                                               |
+|----------------|---------------------------------------------------------------------------------------|
+| `index.html`   | Profile card with social links, hobbies, dislikes, and live time indicator.           |
+| `about.html`   | Reflections, goals, and extra thoughts structured in accessible `<section>` blocks.  |
+| `contact.html` | Accessible contact form with inline error messages and a polite live success banner. |
 
 ## Tech Stack
 
-| Layer        | Choice              | Rationale |
-|--------------|---------------------|-----------|
-| Markup       | Semantic HTML5       | Meets accessibility & testing requirements |
-| Styling      | Modern CSS (Grid, Flexbox, logical properties, `clamp()`, CSS custom properties) | Responsive layout with minimal overrides |
-| Scripting    | Vanilla JavaScript   | Keeps bundle light; only used for live clock & theme persistence |
+| Layer   | Choice | Rationale |
+|---------|--------|-----------|
+| Markup  | Semantic HTML5 | Meets accessibility requirements and keeps `data-testid` hooks intact. |
+| Styling | Modern CSS (Grid, Flexbox, custom properties, `clamp()`) | Responsive layouts with minimal overrides. |
+| Scripts | Vanilla JavaScript | Handles theme persistence, live clock, and contact form validation. |
 
-## Data Test IDs Checklist
+## Data Test IDs Reference
 
-All IDs follow the prerequisite spec:
+### Profile (index.html)
 
-| Element                      | Selector / Location                       |
-|------------------------------|-------------------------------------------|
-| `test-profile-card`          | `<article>` root                          |
-| `test-user-name`             | `<h2>` inside header                      |
-| `test-user-bio`              | `<p>` below the name                      |
-| `test-user-avatar`           | `<img>` inside `<figure>`                 |
-| `test-user-time`             | `<span>` in the meta row                  |
-| `test-user-social-links`     | `<ul>` wrapping the social anchors        |
-| `test-user-social-<network>` | Each `<a>` inside the social list         |
-| `test-user-hobbies`          | `<ul>` in the Hobbies section             |
-| `test-user-dislikes`         | `<ul>` in the Dislikes section            |
+`test-profile-card`, `test-user-name`, `test-user-bio`, `test-user-avatar`, `test-user-time`, `test-user-social-links`, `test-user-social-<network>`, `test-user-hobbies`, `test-user-dislikes`
 
-These IDs are untouched so automated graders can hook into the DOM reliably.
+### About (about.html)
+
+`test-about-page`, `test-about-bio`, `test-about-goals`, `test-about-confidence`, `test-about-future-note`, `test-about-extra`
+
+### Contact (contact.html)
+
+`test-contact-form`, `test-contact-name`, `test-contact-email`, `test-contact-subject`, `test-contact-message`, `test-contact-submit`, `test-contact-success`, plus `test-contact-error-<field>` for each inline error container
 
 ## Getting Started
 
-1. **Clone or download** this repository.  
-2. Open `index.html` directly in your browser — no build step required.  
-3. Optional: serve via a static server for local development (`python -m http.server`, `npx serve`, etc.).
+1. Clone or download this repository.
+2. Open any of the HTML files directly in your browser — no build step required.
+3. Optional: serve via a static server for live-reload (`python -m http.server`, `npx serve`, etc.).
 
 ### File Structure
 
 ```
-profile/
-├── index.html     # Semantic markup with data-testid hooks
-├── style.css      # Theming, responsive layout, accessibility styling
-├── script.js      # Live clock + theme toggle persistence
- └── prerequisite.md# Original task brief for reference
+web/
+├── index.html
+├── about.html
+├── contact.html
+├── style.css
+├── script.js
+├── tests/
+│   ├── profile-card.test.js
+│   ├── about.test.js
+│   └── contact.test.js
+└── assets
 ```
 
 ## Running Tests
 
-This repo includes a lightweight structural test to confirm the prerequisites are satisfied (presence of `data-testid` attributes, safe social link targets, and the live time implementation).
+Each page ships with a fast, dependency-free structural test:
 
 ```bash
-node tests/profile-card.test.js
+node tests/index.test.js
+node tests/about.test.js
+node tests/contact.test.js
 ```
 
-The script outputs a step-by-step breakdown, so you’ll see each requirement ticked off as it passes.
+Run them individually or chain them in your package scripts/CI to ensure the DOM surface and validation hooks stay intact.
 
 ## Accessibility & UX Notes
 
-- **Skip Link & Keyboard Support**: A visually-hidden skip link becomes visible on focus, giving keyboard and screen-reader users a quick path to the main content.
-- **Theme Toggle**: Two-button toggle with `role="group"` exposes an ARIA-compliant preference switch; the state persists via `localStorage`.
-- **Contrast-Driven Palette**: Both themes rely primarily on neutrals with subtle red flourishes that remain AA-compliant across backgrounds.
-- **Motion Sensitivity**: `prefers-reduced-motion` is respected — transitions/animations are disabled for users who opt out.
-- **Focus Styling**: `:focus-visible` is applied globally so navigation is obvious without overwhelming pointer users.
+- **Skip Link & Keyboard Support** – Skip link appears on focus, and every interactive control honours `:focus-visible`.
+- **Theme Toggle** – Light/dark toggle uses `role="group"` and `aria-pressed` states, with user preference cached via `localStorage`.
+- **Form Messaging** – Each input owns an error container tied through `aria-describedby`; success copies live in a `role="status"` container.
+- **Reduced Motion** – Animations respect `prefers-reduced-motion` with near-zero-duration fallbacks.
 
 ## Performance Considerations
 
-- No external fonts, icon sets, or build-time tooling.
-- CSS uses `clamp()` and `auto-fit` grids to minimize media queries and repeated layout definitions.
-- SVG icons for social links are embedded as data URIs, avoiding additional HTTP requests.
-- JavaScript is limited to essential interactive behavior (theme and clock).
-
-## Customisation Tips
-
-- **Swap Profile Content**: Update name, bio, hobbies, dislikes, and social URLs directly in `index.html`. Keep the `data-testid` attributes intact.
-- **Branding**: Tweak the CSS custom properties under the `body` selector to change the accent palette or inject alternate gradients.
-- **Animations**: Animation keyframes (`glowShift`, `avatarGlow`, `pulseDot`) live near the top of the stylesheet; adjust durations or remove them per your brand tone.
+- No external fonts or JavaScript frameworks — pages are deployable as static assets.
+- Stylesheets are preloaded and apply once, while scripts are deferred to keep first paint quick.
+- Shared components (header, theme toggle, validation helpers) prevent duplicate logic across pages.
 
 ## Deployment
 
-Because the project is static, hosting is as simple as dropping the folder into Netlify, GitHub Pages, Vercel, or any static file server.  
+Static hosting is all you need:
 
-1. Push to a GitHub repository.  
-2. Configure your host of choice to serve the root directory.  
-3. Share the live URL along with the repo link to match the prerequisite submission instructions.
-
-### Project Links
-
-- GitHub Repository: [`iyoolaoyabiyi/hng-profile-card-stage-0`](https://github.com/iyoolaoyabiyi/hng-profile-card-stage-0)
-- Live Preview (GitHub Pages): https://iyoolaoyabiyi.github.io/hng-profile-card-stage-0/
+1. Push the project to your preferred Git host.
+2. Point Netlify, Vercel, GitHub Pages, or any static server to the project root.
+3. Share the live URL alongside the repository when submitting your HNG tasks.
 
 ---
 
-Built for the HNG Stage 0 challenge with a focus on clarity, accessibility, and an elegant developer experience. Feel free to fork, remix, and extend!
+Built for the HNG Intenship with equal care for accessibility, performance, and a smooth developer experience.

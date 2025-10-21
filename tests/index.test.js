@@ -2,7 +2,7 @@
 
 /**
  * Simple structural tests for the HNG Stage 0 profile card.
- * Run with: `node tests/profile-card.test.js`
+ * Run with: `node tests/profile-main.test.js`
  */
 
 const fs = require('fs');
@@ -27,7 +27,7 @@ try {
   // Required data-testid attributes from the prerequisite.
   console.log('Checking required data-testid attributes…');
   [
-    'test-profile-card',
+    'test-profile-main',
     'test-user-name',
     'test-user-bio',
     'test-user-avatar',

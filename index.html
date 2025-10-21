@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A personal website for HNG Internship">
   <title>Personal Website :: HNG Internship</title>
   <link rel="preload" href="style.css" as="style">
@@ -26,8 +26,8 @@
       </nav>
     </div>
   </header>
-  <main id="main-content" class="profile-main" role="main" data-testid="page-main" tabindex="-1">
-    <article class="profile-card" data-testid="test-profile-card">
+  <main id="main-content" class="page-container" data-testid="page-main" tabindex="-1">
+    <article class="page-container__card profile-card" data-testid="test-profile-card">
 
       <!-- Header: Avatar + Name + Bio -->
       <header class="profile-card__header" data-testid="header">
@@ -35,12 +35,12 @@
           <img
             src="assets/avatar-200.webp"
             width="200" height="200"
-            alt="Iyola's Picture"
+            alt="Iyola Oyabiyi"
             data-testid="test-user-avatar"
             decoding="async"
             loading="eager"
             fetchpriority="high"
-          />
+          >
           <figcaption class="sr-only" data-testid="avatar-caption">Iyola Oyabiyi</figcaption>
         </figure>
         <div class="profile-card__intro">

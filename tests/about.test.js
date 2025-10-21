@@ -34,7 +34,7 @@ function expect(pattern, message) {
 try {
   console.log('Validating About page skeleton…');
   expect(
-    /<main[^>]+data-testid="test-about-page"[^>]+role="main"/i,
+    /<main[^>]+data-testid="test-about-page"/i,
     'Main element exposes data-testid="test-about-page"\n'
   );
 
