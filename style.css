@@ -14,7 +14,7 @@
   --tint-surface-strong: rgba(255,255,255,.08);
   --tint-surface-stronger: rgba(255,255,255,.18);
   --tint-outline: rgba(255,255,255,.12);
-  --card-shadow: 0 28px 64px -48px rgba(223,223,223,.85);
+  --card-shadow: 0 28px 64px -48px rgba(200,200,200,.25);
   --accent: rgb(255, 76, 76);
   --accent-soft: rgba(210,74,79,.18);
   --accent-softer: rgba(210,74,79,.28);

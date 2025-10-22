@@ -76,6 +76,14 @@ node tests/contact.test.js
 
 Run them individually or chain them in your package scripts/CI to ensure the DOM surface and validation hooks stay intact.
 
+## Lighthouse Reports
+
+Audited pages ship with static Lighthouse reports you can open locally:
+
+- [Profile page report](tests/reports/lighthouse.report.html)
+- [About page report](tests/reports/lighthouse-about.report.html)
+- [Contact page report](tests/reports/lighthouse-contact.report.html)
+
 ## Accessibility & UX Notes
 
 - **Skip Link & Keyboard Support** – Skip link appears on focus, and every interactive control honours `:focus-visible`.
