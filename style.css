@@ -4,6 +4,7 @@
 }
 
 :root {
+  --neutral-0: #ffffff;
   --bg: #050505;
   --card: #111111;
   --fg: #f6f6f6;
@@ -23,7 +24,6 @@
   --error: rgb(255, 76, 76);
   --success-bg: #166534;
   --success-border: rgba(34, 197, 94, .45);
-  --neutral-0: #fffff;
 }
 :root[data-theme="light"] {
   --bg:#f7f7f7;
